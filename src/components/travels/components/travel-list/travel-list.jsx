@@ -4,6 +4,8 @@ import './styles.css';
 const Travellist = () => (
     <ul className="trip-list">
       <Travel />
+      <Travel />
+      <Travel />
     </ul>
   );
   
