@@ -1,5 +1,5 @@
-import './styles.css'
-import heart from '../../assets/images/heart.svg'
+import './styles.css';
+import heart from '../../assets/images/heart.svg';
 
 const Footer = () => (
     <footer className="footer">

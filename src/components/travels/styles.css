@@ -1,0 +1,12 @@
+.trips-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 180px;
+  padding: 20px;
+  background-color: var(--color-blue-400);
+}
+
+.trips {
+  padding: 60px 20px;
+}

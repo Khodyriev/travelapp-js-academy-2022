@@ -1,11 +1,14 @@
-import Footer from './footer/footer'
-import Header from './header/header'
+import Footer from './footer/footer';
+import Header from './header/header';
+import Travels from './travels/travels';
 
 function App() {
   return (
     <>
     <Header />
-    <main></main>
+    <main>
+      <Travels />
+    </main>
     <Footer />
     </>
   );
