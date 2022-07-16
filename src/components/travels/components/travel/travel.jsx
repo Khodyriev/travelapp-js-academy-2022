@@ -1,5 +1,6 @@
 import './styles.css';
 import iceland from '../../../../assets/images/iceland.jpg';
+import { AppPath } from '../../../../common/enums/enum';
 
 const Travel = () => (
     <li class="trip-card">
@@ -17,7 +18,7 @@ const Travel = () => (
                 <strong className="trip-price__value">7000 $</strong>
               </div>
             </div>
-            <a href="./trip.html" className="button">Discover a trip</a>
+            <a href={`${AppPath.TRAVELS}/1`} className="button">Discover a trip</a>
           </li>
 );
 

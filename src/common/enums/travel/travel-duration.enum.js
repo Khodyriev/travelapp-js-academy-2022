@@ -1,7 +1,7 @@
 const TravelDuration = {
-    LESS5: '0_x_5',
-    LESS10: '5_x_10',
-    MORE10: '10_x',
+    LESS5: '< 5 days',
+    LESS10: '< 10 days',
+    MORE10: '>= 10 days',
   };
   
   export { TravelDuration };
