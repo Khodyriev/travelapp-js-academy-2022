@@ -1,13 +1,15 @@
 import TripBookPopup from './trip-booking-popup/trip-book-popup';
 import './styles.css';
+import { useRouter } from '../../hooks/hooks';
 import HeaderMax from '../header/header-max';
 import { getTravelById } from '../../helpers/helpers';
 import Placeholder from '../common/placeholder/placeholder';
 import { DataPlaceholder } from '../../common/enums/enum'
 
-const TripDetails = ({ travels, id }) => {
+const TripDetails = ({ travels }) => {
     const isPopupOpen = false;
-    const travel = getTravelById(travels, id);
+    const { query } = useRouter();
+    const travel = getTravelById(travels, query.id);
     const hasPage = Boolean(travel);
 
     if (!hasPage) {return <Placeholder text={DataPlaceholder.NO_TRAVEL} />;}
@@ -36,7 +38,7 @@ const TripDetails = ({ travels, id }) => {
             </div>
         </div>
         </main>
-        {isPopupOpen && <TripBookPopup travels={travels} id={id} />}
+        {isPopupOpen && <TripBookPopup travels={travels} id={query.id} />}
       </>
     );
   };

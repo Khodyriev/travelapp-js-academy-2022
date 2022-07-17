@@ -1,5 +1,6 @@
 import { getLastPath } from '../helpers/helpers';
 import { AppPath } from '../common/enums/enum';
+import { Link, Route, Switch } from 'react-router-dom';
 import Footer from './footer/footer';
 import Travels from './travels/travels';
 import Bookings from './bookings/bookings';
@@ -11,45 +12,30 @@ import bookings from '../database/bookings.json';
 
 const App = () => {
 
-  const { pathname } = window.location;
-
   const { travels } = trips;
   const { books } = bookings;
 
-  const getScreen = (path) => {
-    const id = getLastPath(path);
-
-    switch (path) {
-      case `${AppPath.SIGNIN}` : {
-        return <SignIn />
-      }
-      case `${AppPath.SIGNUP}` : {
-        return <SignUp />
-      }
-      case `${AppPath.ROOT}`: {
-        return <Travels travels={travels} />;
-      }
-      case `${AppPath.TRAVELS}`: {
-        return <Travels travels={travels} />;
-      }
-      case `${AppPath.TRAVELS}/${id}`: {
-        return <TripDetails travels={travels} id={id}/>;
-      }
-      case `${AppPath.BOOKINGS}` : {
-        return <Bookings books={books} />
-      }
-      default: {
-        return <Travels travels={travels} />;
-      }
-    }
-  };
-
   return (
     <>    
-    
-      {getScreen(pathname)}
-    
-    <Footer />
+        <Switch>
+            <Route path={AppPath.SIGNIN} exact>
+              <SignIn />
+            </Route>
+            <Route path={AppPath.SIGNUP} exact>
+              <SignUp />
+            </Route>
+            <Route path={AppPath.ROOT || AppPath.TRAVELS || AppPath.ANY} exact>
+              <Travels travels={travels} />
+            </Route>
+            <Route path={AppPath.TRAVELS_$ID} exact>
+              <TripDetails travels={travels} />
+            </Route>
+            <Route path={AppPath.BOOKINGS} exact>
+              <Bookings books={books} />
+            </Route>
+        </Switch>
+        
+      <Footer />
     </>
   );
 }

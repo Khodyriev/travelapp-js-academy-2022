@@ -2,18 +2,19 @@ import './styles.css'
 import briefcase from '../../assets/images/briefcase.svg'
 import user from '../../assets/images/user.svg'
 import { AppPath } from '../../common/enums/enum';
+import { Link } from 'react-router-dom';
 
 const HeaderMax = () => (
     <header className="header">
       <div className="header__inner">
-        <a href={`${AppPath.ROOT}`} className="header__logo">Travel App</a>
+        <Link to={AppPath.ROOT} className="header__logo">Travel App</Link>
         <nav className="header__nav">
           <ul className="nav-header__list">
             <li className="nav-header__item" title="Bookings">
-              <a href={`${AppPath.BOOKINGS}`} className="nav-header__inner">
+              <Link to={AppPath.BOOKINGS} className="nav-header__inner">
                 <span className="visually-hidden">Bookings</span>
                 <img src={briefcase} alt=" icon" />
-              </a>
+              </Link>
             </li>
             <li className="nav-header__item" title="Profile">
               <div className="nav-header__inner profile-nav" tabIndex="0">
