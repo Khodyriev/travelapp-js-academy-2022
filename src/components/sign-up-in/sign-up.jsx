@@ -1,10 +1,13 @@
 import './styles.css';
 import { AppPath } from '../../common/enums/enum';
+import HeaderMin from '../header/header-min';
 
 const SignUp = () => (
+  <>
+    <HeaderMin />
     <main className="sign-up-page">
       <h1 className="visually-hidden">Travel App</h1>
-      <form className="sign-up-form" autocomplete="off">
+      <form className="sign-up-form" autoComplete="off">
         <h2 className="sign-up-form__title">Sign Up</h2>
         <label className="trip-popup__input input">
           <span className="input__heading">Full name</span>
@@ -16,15 +19,16 @@ const SignUp = () => (
         </label>
         <label className="trip-popup__input input">
           <span className="input__heading">Password</span>
-          <input name="password" type="password" autocomplete="new-password" required />
+          <input name="password" type="password" autoComplete="new-password" required />
         </label>
         <button className="button" type="submit">Sign Up</button>
       </form>
       <span>
         Already have an account?
-        <a href={`${AppPath.SIGNIN}`} class="sign-up-form__link">Sign In</a>
+        <a href={`${AppPath.SIGNIN}`} className="sign-up-form__link">Sign In</a>
       </span>
     </main>
+  </>  
 );
 
 export default SignUp;

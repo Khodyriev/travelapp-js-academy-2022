@@ -6,7 +6,7 @@ const TripBookPopup = () => (
         <div className="modal">
         <div className="trip-popup">
           <button className="trip-popup__close">×</button>
-          <form className="trip-popup__form" autocomplete="off">
+          <form className="trip-popup__form" autoComplete="off">
             <div className="trip-info">
               <h3 className="trip-info__title">Iceland</h3>
               <div className="trip-info__content">

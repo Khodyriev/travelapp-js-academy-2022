@@ -1,7 +1,6 @@
 import { getLastPath } from '../helpers/helpers';
 import { AppPath } from '../common/enums/enum';
 import Footer from './footer/footer';
-import Header from './header/header';
 import Travels from './travels/travels';
 import Bookings from './bookings/bookings';
 import SignUp from './sign-up-in/sign-up';
@@ -41,8 +40,7 @@ const App = () => {
   };
 
   return (
-    <>
-    <Header />
+    <>    
     
       {getScreen(pathname)}
     

@@ -3,7 +3,7 @@ import iceland from '../../../../assets/images/iceland.jpg';
 import { AppPath } from '../../../../common/enums/enum';
 
 const Travel = () => (
-    <li class="trip-card">
+    <li className="trip-card">
             <img src={iceland} alt="place of the trip" />
             <div className="trip-card__content">
               <div className="trip-info">

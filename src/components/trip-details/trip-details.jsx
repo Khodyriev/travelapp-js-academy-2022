@@ -1,12 +1,14 @@
 import TripBookPopup from './trip-booking-popup/trip-book-popup';
 import './styles.css';
 import iceland from '../../assets/images/iceland.jpg';
+import HeaderMax from '../header/header-max';
 
 const TripDetails = () => {
     const isPopupOpen = false;
   
     return (
       <>
+        <HeaderMax />
         <main className="trip-page">
         <h1 className="visually-hidden">Travel App</h1>
         <div className="trip">
