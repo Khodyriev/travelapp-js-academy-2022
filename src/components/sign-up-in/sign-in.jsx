@@ -1,8 +1,8 @@
-import './style.css';
+import './styles.css';
 import { AppPath } from '../../common/enums/enum';
 
 const SignIn = () => (
-    <section className="sign-in-page">
+    <main className="sign-in-page">
     <h1 className="visually-hidden">Travel App</h1>
     <form className="sign-in-form" autocomplete="off">
     <h2 className="sign-in-form__title">Sign In</h2>
@@ -20,7 +20,7 @@ const SignIn = () => (
     Don't have an account yet?
     <a href={`${AppPath.SIGNUP}`} class="sign-in-form__link">Sign Up</a>
     </span>
-    </section>
+    </main>
 );
 
 export default SignIn;

@@ -1,4 +1,4 @@
-import { Modal } from '../../common/modal/modal';
+import Modal from '../../common/modal/modal';
 import './styles.css';
 
 const TripBookPopup = () => (

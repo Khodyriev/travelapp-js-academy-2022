@@ -1,11 +1,11 @@
 import BookingList from './booking-list/booking-list';
-import './style.css';
+import './styles.css';
 
 const Bookings = () => (
-    <section class="bookings-page">
+    <main class="bookings-page">
         <h1 class="visually-hidden">Travel App</h1>
         <BookingList />
-    </section>
+    </main>
 );
 
 export default Bookings;

@@ -1,5 +1,5 @@
 import Booking from '../booking/booking';
-import './style.css';
+import './styles.css';
 
 const BookingList = () => (
     <ul className="bookings__list">

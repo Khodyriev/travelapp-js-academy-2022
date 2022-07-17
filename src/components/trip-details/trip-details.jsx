@@ -1,13 +1,13 @@
 import TripBookPopup from './trip-booking-popup/trip-book-popup';
-import './style.css';
-import { iceland } from '../../assets/images/iceland.jpg';
+import './styles.css';
+import iceland from '../../assets/images/iceland.jpg';
 
 const TripDetails = () => {
     const isPopupOpen = false;
   
     return (
       <>
-        <section className="trip-page">
+        <main className="trip-page">
         <h1 className="visually-hidden">Travel App</h1>
         <div className="trip">
             <img src={iceland} className="trip__img" alt="trip place" />
@@ -33,7 +33,7 @@ const TripDetails = () => {
             <button className="trip__button button">Book a trip</button>
             </div>
         </div>
-        </section>
+        </main>
         {isPopupOpen && <TripBookPopup />}
       </>
     );
