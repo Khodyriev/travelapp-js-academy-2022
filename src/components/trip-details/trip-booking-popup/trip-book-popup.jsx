@@ -1,17 +1,22 @@
 import Modal from '../../common/modal/modal';
+import { getTravelById } from '../../../helpers/helpers';
 import './styles.css';
 
-const TripBookPopup = () => (
+const TripBookPopup = ({ travels, id }) => {
+
+  const travel = getTravelById(travels, id);
+
+  return (
     <Modal>
         <div className="modal">
         <div className="trip-popup">
           <button className="trip-popup__close">×</button>
           <form className="trip-popup__form" autoComplete="off">
             <div className="trip-info">
-              <h3 className="trip-info__title">Iceland</h3>
+              <h3 className="trip-info__title">{travel.title}</h3>
               <div className="trip-info__content">
-                <span className="trip-info__duration"><strong>15</strong> days</span>
-                <span className="trip-info__level">easy</span>
+                <span className="trip-info__duration"><strong>{travel.duration}</strong> days</span>
+                <span className="trip-info__level">{travel.level}</span>
               </div>
             </div>
             <label className="trip-popup__input input">
@@ -23,13 +28,14 @@ const TripBookPopup = () => (
               <input name="guests" type="number" min="1" max="10" defaultValue="1" required />
             </label>
             <span className="trip-popup__total">
-              Total: <output className="trip-popup__total-value">4000$</output>
+              Total: <output className="trip-popup__total-value">{travel.price} $</output>
             </span>
             <button className="button" type="submit">Book a trip</button>
           </form>
         </div>
       </div>
     </Modal>
-);
+  );
+};
 
 export default TripBookPopup;

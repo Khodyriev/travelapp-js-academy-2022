@@ -24,7 +24,7 @@ const TripDetails = ({ travels, id }) => {
                 <h3 className="trip-info__title">{travel.title}</h3>
                 <div className="trip-info__content">
                 <span className="trip-info__duration"><strong>{travel.duration}</strong> days</span>
-                <span className="trip-info__level">easy</span>
+                <span className="trip-info__level">{travel.level}</span>
                 </div>
             </div>
             <div className="trip__description">{travel.description}</div>
@@ -36,7 +36,7 @@ const TripDetails = ({ travels, id }) => {
             </div>
         </div>
         </main>
-        {isPopupOpen && <TripBookPopup />}
+        {isPopupOpen && <TripBookPopup travels={travels} id={id} />}
       </>
     );
   };
