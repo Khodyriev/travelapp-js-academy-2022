@@ -1,15 +1,16 @@
 import './styles.css'
 import briefcase from '../../assets/images/briefcase.svg'
 import user from '../../assets/images/user.svg'
+import { AppPath } from '../../common/enums/enum';
 
 const Header = () => (
     <header className="header">
       <div className="header__inner">
-        <a href="./index.html" className="header__logo">Travel App</a>
+        <a href={`${AppPath.ROOT}`} className="header__logo">Travel App</a>
         <nav className="header__nav">
           <ul className="nav-header__list">
             <li className="nav-header__item" title="Bookings">
-              <a href="./bookings.html" class="nav-header__inner">
+              <a href={`${AppPath.BOOKINGS}`} class="nav-header__inner">
                 <span className="visually-hidden">Bookings</span>
                 <img src={briefcase} alt=" icon" />
               </a>

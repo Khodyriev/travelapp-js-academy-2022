@@ -69,3 +69,13 @@ select {
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
 }
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
