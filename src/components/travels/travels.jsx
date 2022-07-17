@@ -17,8 +17,7 @@ const Travels = ({ travels }) => {
                     <TripsFilter />
                 </section>
                 <section className="trips">
-                    <h2 className="visually-hidden">Trips List</h2>
-                    {/* <Travellist travels={travels} /> */}
+                    <h2 className="visually-hidden">Trips List</h2>                    
                     {hasTravels ? (<Travellist travels={travels} />) : (<Placeholder text={DataPlaceholder.NO_TRAVELS} />)}
                     
                 </section>

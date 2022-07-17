@@ -1,5 +1,5 @@
-const getTodoById = (travels, id) => {
+const getTravelById = (travels, id) => {
     return travels.find((it) => it.id === id) ?? null;
   };
   
-  export { getTodoById };
+  export { getTravelById };

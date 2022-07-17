@@ -4,7 +4,7 @@ import { AppPath } from '../../../../common/enums/enum';
 
 const Travel = ({ travel }) => (
     <li className="trip-card">
-            <img src={travel.image} alt="place of the trip" />
+            <img src={travel.image} alt="place of the trip" className="trip-card__image" />
             <div className="trip-card__content">
               <div className="trip-info">
                 <h3 className="trip-info__title">{travel.title}</h3>
