@@ -5,10 +5,12 @@ const getFilteredTravels = (travels, filterValues) => {
 
   return travels.filter((it) => {
     const isNameMatch = it.title.toLowerCase().includes(search.toLowerCase());
-    const isStatusMath = it.duration === duration || duration === DEFAULT_FILTER_VALUE_DUR;
-    const isPriorityMath = it.level === level || level === DEFAULT_FILTER_VALUE_LEV;
+    let namedDuration = '';
+    if (it.duration < 5) {namedDuration = '< 5 days'} else if (it.duration >= 10) {namedDuration = '≥ 10 days'} else {namedDuration = '< 10 days'};
+    const isDurationMath = namedDuration === duration || duration === DEFAULT_FILTER_VALUE_DUR;
+    const isLevelMath = it.level === level || level === DEFAULT_FILTER_VALUE_LEV;
 
-    return isNameMatch && isStatusMath && isPriorityMath;
+    return isNameMatch && isDurationMath && isLevelMath;
   });
 };
 

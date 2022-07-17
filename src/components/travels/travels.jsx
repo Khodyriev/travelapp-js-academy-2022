@@ -13,7 +13,7 @@ const Travels = ({ travels: fetchedTravels }) => {
     const [filterValues, setFilterValues] = useState(DEFAULT_FILTER_VALUES);
 
     const filteredTravels = getFilteredTravels(travels, filterValues);
-    const hasTravels = Boolean(travels.length);
+    const hasTravels = Boolean(filteredTravels.length);
 
     const handlerFilterChange = (values) => setFilterValues(values);
 
