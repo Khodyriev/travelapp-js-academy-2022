@@ -2,7 +2,7 @@ import { TripsFilter, Travellist } from './components/components'
 import './styles.css';
 import HeaderMax from '../header/header-max';
 import Placeholder from '../common/placeholder/placeholder';
-import { DataPlaceholder } from '../../common/enums/enum'
+import { DataPlaceholder } from '../../common/enums/enum';
 
 const Travels = ({ travels }) => {
     const hasTravels = Boolean(travels.length);

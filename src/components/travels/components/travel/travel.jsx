@@ -1,5 +1,4 @@
 import './styles.css';
-// import iceland from '../../../../assets/images/iceland.jpg';
 import { AppPath } from '../../../../common/enums/enum';
 
 const Travel = ({ travel }) => (

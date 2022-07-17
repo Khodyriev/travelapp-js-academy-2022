@@ -7,14 +7,14 @@ import SignUp from './sign-up-in/sign-up';
 import SignIn from './sign-up-in/sign-in';
 import TripDetails from './trip-details/trip-details';
 import trips from '../database/trips.json';
-// import bookings from '../database/bookings.json';
+import bookings from '../database/bookings.json';
 
 const App = () => {
 
   const { pathname } = window.location;
 
   const { travels } = trips;
-  // const { books } = bookings;
+  const { books } = bookings;
 
   const getScreen = (path) => {
     const id = getLastPath(path);
@@ -36,7 +36,7 @@ const App = () => {
         return <TripDetails travels={travels} id={id}/>;
       }
       case `${AppPath.BOOKINGS}` : {
-        return <Bookings />
+        return <Bookings books={books} />
       }
       default: {
         return <Travels travels={travels} />;

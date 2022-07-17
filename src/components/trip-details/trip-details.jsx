@@ -1,6 +1,5 @@
 import TripBookPopup from './trip-booking-popup/trip-book-popup';
 import './styles.css';
-// import iceland from '../../assets/images/iceland.jpg';
 import HeaderMax from '../header/header-max';
 import { getTravelById } from '../../helpers/helpers';
 import Placeholder from '../common/placeholder/placeholder';
