@@ -1,8 +1,12 @@
 import { TripsFilter, Travellist } from './components/components'
 import './styles.css';
 import HeaderMax from '../header/header-max';
+import Placeholder from '../common/placeholder/placeholder';
+import { DataPlaceholder } from '../../common/enums/enum'
 
-const Travels = ({ count }) => {
+const Travels = ({ travels }) => {
+    const hasTravels = Boolean(travels.length);
+
     return (
         <>
             <HeaderMax />
@@ -14,7 +18,9 @@ const Travels = ({ count }) => {
                 </section>
                 <section className="trips">
                     <h2 className="visually-hidden">Trips List</h2>
-                    <Travellist count={count} />
+                    {/* <Travellist travels={travels} /> */}
+                    {hasTravels ? (<Travellist travels={travels} />) : (<Placeholder text={DataPlaceholder.NO_TRAVELS} />)}
+                    
                 </section>
             </main>
         </>

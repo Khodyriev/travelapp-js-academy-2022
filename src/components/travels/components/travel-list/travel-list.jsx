@@ -1,10 +1,10 @@
 import Travel from '../travel/travel'
 import './styles.css';
 
-const Travellist = ({ count }) => (
+const Travellist = ({ travels }) => (
     <ul className="trip-list">
-      {Array.from(new Array(count), (_, idx) => (
-        <Travel key={idx} />
+      {travels.map((travel) => (
+        <Travel travel={travel} key={travel.id} />
       ))}
     </ul>
   );

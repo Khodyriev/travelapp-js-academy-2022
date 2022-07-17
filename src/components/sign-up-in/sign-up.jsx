@@ -19,7 +19,7 @@ const SignUp = () => (
         </label>
         <label className="trip-popup__input input">
           <span className="input__heading">Password</span>
-          <input name="password" type="password" autoComplete="new-password" required />
+          <input name="password" type="password" autoComplete="new-password" required minLength={3} maxLength={20} />
         </label>
         <button className="button" type="submit">Sign Up</button>
       </form>

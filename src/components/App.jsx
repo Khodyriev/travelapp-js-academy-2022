@@ -6,12 +6,15 @@ import Bookings from './bookings/bookings';
 import SignUp from './sign-up-in/sign-up';
 import SignIn from './sign-up-in/sign-in';
 import TripDetails from './trip-details/trip-details';
+import trips from '../database/trips.json';
+// import bookings from '../database/bookings.json';
 
 const App = () => {
 
   const { pathname } = window.location;
 
-  const TRAVELS_COUNT = 5;
+  const { travels } = trips;
+  // const { books } = bookings;
 
   const getScreen = (path) => {
     const id = getLastPath(path);
@@ -24,19 +27,19 @@ const App = () => {
         return <SignUp />
       }
       case `${AppPath.ROOT}`: {
-        return <Travels count={TRAVELS_COUNT} />;
+        return <Travels travels={travels} />;
       }
       case `${AppPath.TRAVELS}`: {
-        return <Travels count={TRAVELS_COUNT} />;
+        return <Travels travels={travels} />;
       }
       case `${AppPath.TRAVELS}/${id}`: {
-        return <TripDetails />;
+        return <TripDetails travels={travels} id={id}/>;
       }
       case `${AppPath.BOOKINGS}` : {
         return <Bookings />
       }
       default: {
-        return <SignIn />;
+        return <Travels travels={travels} />;
       }
     }
   };

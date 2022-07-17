@@ -1,24 +1,24 @@
 import './styles.css';
-import iceland from '../../../../assets/images/iceland.jpg';
+// import iceland from '../../../../assets/images/iceland.jpg';
 import { AppPath } from '../../../../common/enums/enum';
 
-const Travel = () => (
+const Travel = ({ travel }) => (
     <li className="trip-card">
-            <img src={iceland} alt="place of the trip" />
+            <img src={travel.image} alt="place of the trip" />
             <div className="trip-card__content">
               <div className="trip-info">
-                <h3 className="trip-info__title">Iceland</h3>
+                <h3 className="trip-info__title">{travel.title}</h3>
                 <div className="trip-info__content">
-                  <span className="trip-info__duration"><strong>15</strong> days</span>
-                  <span className="trip-info__level">easy</span>
+                  <span className="trip-info__duration"><strong>{travel.duration}</strong> days</span>
+                  <span className="trip-info__level">{travel.level}</span>
                 </div>
               </div>
               <div className="trip-price">
                 <span>Price</span>
-                <strong className="trip-price__value">7000 $</strong>
+                <strong className="trip-price__value">{travel.price} $</strong>
               </div>
             </div>
-            <a href={`${AppPath.TRAVELS}/1`} className="button">Discover a trip</a>
+            <a href={`${AppPath.TRAVELS}/${travel.id}`} className="button">Discover a trip</a>
           </li>
 );
 
