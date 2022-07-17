@@ -1,9 +1,9 @@
-import { DEFAULT_FILTER_VALUE } from '../../../../common/constants/constants';
+import { DEFAULT_FILTER_VALUE_DUR, DEFAULT_FILTER_VALUE_LEV } from '../../../../common/constants/constants';
 import { FilterKey, TravelDuration, TravelLevel } from '../../../../common/enums/enum';
 import './styles.css'
 
-const durationOptions = [DEFAULT_FILTER_VALUE].concat(Object.values(TravelDuration));
-const levelOptions = [DEFAULT_FILTER_VALUE].concat(Object.values(TravelLevel));
+const durationOptions = [DEFAULT_FILTER_VALUE_DUR].concat(Object.values(TravelDuration));
+const levelOptions = [DEFAULT_FILTER_VALUE_LEV].concat(Object.values(TravelLevel));
 
 const TripsFilter = () => (
     <form className="trips-filter__form" autoComplete="off">
@@ -13,8 +13,7 @@ const TripsFilter = () => (
           </label>
           <label className="select">
             <span className="visually-hidden">Search by duration</span>
-            <select name={FilterKey.DURATION}>
-                <option value="">duration</option>
+            <select name={FilterKey.DURATION}>                
                 {durationOptions.map((it) => (
                   <option value={it} key={it}>
                     {it}
@@ -24,8 +23,7 @@ const TripsFilter = () => (
           </label>
           <label className="select">
             <span className="visually-hidden">Search by level</span>
-            <select name={FilterKey.LEVEL}>
-                <option value="">level</option>
+            <select name={FilterKey.LEVEL}>                
                 {levelOptions.map((it) => (
                   <option value={it} key={it}>
                     {it}

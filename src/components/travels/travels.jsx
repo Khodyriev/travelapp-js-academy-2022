@@ -2,7 +2,7 @@ import { TripsFilter, Travellist } from './components/components'
 import './styles.css';
 import HeaderMax from '../header/header-max';
 
-const Travels = () => {
+const Travels = ({ count }) => {
     return (
         <>
             <HeaderMax />
@@ -14,7 +14,7 @@ const Travels = () => {
                 </section>
                 <section className="trips">
                     <h2 className="visually-hidden">Trips List</h2>
-                    <Travellist />
+                    <Travellist count={count} />
                 </section>
             </main>
         </>

@@ -1,11 +1,11 @@
 import Travel from '../travel/travel'
 import './styles.css';
 
-const Travellist = () => (
+const Travellist = ({ count }) => (
     <ul className="trip-list">
-      <Travel />
-      <Travel />
-      <Travel />
+      {Array.from(new Array(count), (_, idx) => (
+        <Travel key={idx} />
+      ))}
     </ul>
   );
   

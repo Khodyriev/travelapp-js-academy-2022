@@ -11,6 +11,8 @@ const App = () => {
 
   const { pathname } = window.location;
 
+  const TRAVELS_COUNT = 5;
+
   const getScreen = (path) => {
     const id = getLastPath(path);
 
@@ -22,10 +24,10 @@ const App = () => {
         return <SignUp />
       }
       case `${AppPath.ROOT}`: {
-        return <Travels />;
+        return <Travels count={TRAVELS_COUNT} />;
       }
       case `${AppPath.TRAVELS}`: {
-        return <Travels />;
+        return <Travels count={TRAVELS_COUNT} />;
       }
       case `${AppPath.TRAVELS}/${id}`: {
         return <TripDetails />;
