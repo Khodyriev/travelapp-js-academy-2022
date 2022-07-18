@@ -18,6 +18,8 @@ const App = () => {
   const { travels } = trips;
   const { books } = bookings;
 
+  books.sort((a, b) => a.date > b.date ? 1 : -1);
+
   return (    
         <BrowserRouter>
         <Routes>
