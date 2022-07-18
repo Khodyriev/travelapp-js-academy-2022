@@ -7,7 +7,7 @@ import Placeholder from '../common/placeholder/placeholder';
 import { DataPlaceholder } from '../../common/enums/enum'
 
 const TripDetails = ({ travels }) => {
-    // const isPopupOpen = false;
+    
     const { query } = useRouter();
     const travel = getTravelById(travels, query.id);
     const hasPage = Boolean(travel);

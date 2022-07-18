@@ -2,9 +2,6 @@ import './styles.css';
 import { useCallback, useEffect } from '../../../hooks/hooks';
 import { KeydownKey } from  '../../../common/enums/enum';
 
-
-// const Modal = ({ children }) => <div className="modal">{children}</div>;
-
 const Modal = ({ children, onClose }) => {
     const handleEscapeDown = useCallback(({ key }) => {
       if (key === KeydownKey.ESCAPE) {
