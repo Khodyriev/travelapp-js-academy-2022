@@ -16,23 +16,28 @@ const App = () => {
   const { books } = bookings;
 
   return (
-    <>    
+    <> 
+
         <Switch>
-            <Route path={AppPath.SIGNIN} exact>
-              <SignIn />
-            </Route>
-            <Route path={AppPath.SIGNUP} exact>
-              <SignUp />
-            </Route>
-            <Route path={AppPath.ROOT || AppPath.TRAVELS || AppPath.ANY} exact>
+            <Route path={AppPath.ROOT} exact>
               <Travels travels={travels} />
             </Route>
-            <Route path={AppPath.TRAVELS_$ID} exact>
+            <Route path={AppPath.SIGNIN} >
+              <SignIn />
+            </Route>
+            <Route path={AppPath.SIGNUP} >
+              <SignUp />
+            </Route>
+            <Route path={AppPath.TRAVELS_$ID} >
               <TripDetails travels={travels} />
             </Route>
-            <Route path={AppPath.BOOKINGS} exact>
+            <Route path={AppPath.BOOKINGS}>
               <Bookings books={books} />
             </Route>
+            <Route path={AppPath.TRAVELS || AppPath.ANY}>
+              <Travels travels={travels} />
+            </Route>
+            
         </Switch>
         
       <Footer />
