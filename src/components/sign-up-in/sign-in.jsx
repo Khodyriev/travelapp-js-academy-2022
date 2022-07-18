@@ -2,13 +2,22 @@ import './styles.css';
 import { AppPath } from '../../common/enums/enum';
 import HeaderMin from '../header/header-min';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-const SignIn = () => (
+const SignIn = () => {
+
+    const navigate = useNavigate()
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        navigate(AppPath.ROOT);
+      }
+
+return (
     <>
     <HeaderMin />
     <main className="sign-in-page">
     <h1 className="visually-hidden">Travel App</h1>
-    <form className="sign-in-form" autoComplete="off">
+    <form onSubmit={handleSubmit} className="sign-in-form" autoComplete="off">
     <h2 className="sign-in-form__title">Sign In</h2>
     <label className="trip-popup__input input">
         <span className="input__heading">Email</span>
@@ -26,6 +35,6 @@ const SignIn = () => (
     </span>
     </main>
     </>
-);
+)};
 
 export default SignIn;

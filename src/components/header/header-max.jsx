@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 const HeaderMax = () => {   
   
+  const navigate = useNavigate()
+
   return  (
     <>
     <header className="header">
@@ -27,7 +29,7 @@ const HeaderMax = () => {
                 <ul className="profile-nav__list">
                   <li className="profile-nav__item profile-nav__username">John Doe</li>
                   <li className="profile-nav__item">
-                    <button className="profile-nav__sign-out button" >Sign Out</button>
+                    <button className="profile-nav__sign-out button" onClick={() => {navigate(AppPath.SIGNIN)}} >Sign Out</button>
                   </li>
                 </ul>
               </div>
