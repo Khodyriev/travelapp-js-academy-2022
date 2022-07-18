@@ -1,5 +1,5 @@
 import Modal from '../../common/modal/modal';
-import { useFocusTrap } from '../../../hooks/hooks';
+import { useFocusTrap, useState } from '../../../hooks/hooks';
 import { getTravelById } from '../../../helpers/helpers';
 import './styles.css';
 
@@ -11,6 +11,14 @@ const TripBookPopup = ({ travels, id, onClose }) => {
     evt.preventDefault();
     onClose();
   }
+
+  const today = new Date();
+
+  const [totalPrice, setTotal] = useState(travel.price);
+
+  const handleChange = ({ target }) => {
+    const { value } = target;
+    setTotal(travel.price * value)}; 
 
   return (
     <Modal onClose={onClose}>
@@ -27,14 +35,14 @@ const TripBookPopup = ({ travels, id, onClose }) => {
             </div>
             <label className="trip-popup__input input">
               <span className="input__heading">Date</span>
-              <input name="date" type="date" required />
+              <input name="date" type="date" required min={today.toISOString().substr(0, 10)}/>
             </label>
             <label className="trip-popup__input input">
               <span className="input__heading">Number of guests</span>
-              <input name="guests" type="number" min="1" max="10" defaultValue="1" required />
+              <input name="guests" type="number" min="1" max="10" defaultValue="1" required onChange={handleChange} />
             </label>
             <span className="trip-popup__total">
-              Total: <output className="trip-popup__total-value">{travel.price} $</output>
+              Total: <output className="trip-popup__total-value">{totalPrice} $</output>
             </span>
             <button className="button" type="submit">Book a trip</button>
           </form>
