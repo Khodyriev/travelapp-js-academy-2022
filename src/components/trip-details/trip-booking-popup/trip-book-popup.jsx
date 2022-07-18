@@ -1,17 +1,23 @@
 import Modal from '../../common/modal/modal';
+import { useFocusTrap } from '../../../hooks/hooks';
 import { getTravelById } from '../../../helpers/helpers';
 import './styles.css';
 
-const TripBookPopup = ({ travels, id }) => {
+const TripBookPopup = ({ travels, id, onClose }) => {
 
+  const ref = useFocusTrap();
   const travel = getTravelById(travels, id);
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    onClose();
+  }
 
   return (
-    <Modal>
+    <Modal onClose={onClose}>
         <div className="modal">
         <div className="trip-popup">
-          <button className="trip-popup__close">×</button>
-          <form className="trip-popup__form" autoComplete="off">
+          <button className="trip-popup__close" onClick={onClose}>×</button>
+          <form ref={ref} onSubmit={handleSubmit} className="trip-popup__form" autoComplete="off">
             <div className="trip-info">
               <h3 className="trip-info__title">{travel.title}</h3>
               <div className="trip-info__content">

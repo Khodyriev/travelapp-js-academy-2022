@@ -1,16 +1,21 @@
 import TripBookPopup from './trip-booking-popup/trip-book-popup';
 import './styles.css';
-import { useRouter } from '../../hooks/hooks';
+import { useRouter, useState } from '../../hooks/hooks';
 import HeaderMax from '../header/header-max';
 import { getTravelById } from '../../helpers/helpers';
 import Placeholder from '../common/placeholder/placeholder';
 import { DataPlaceholder } from '../../common/enums/enum'
 
 const TripDetails = ({ travels }) => {
-    const isPopupOpen = false;
+    // const isPopupOpen = false;
     const { query } = useRouter();
     const travel = getTravelById(travels, query.id);
     const hasPage = Boolean(travel);
+    
+    const [currentTodo, setCurrentTodo] = useState(null);
+    const handleAddPopupOpen = () => setCurrentTodo('1');
+    const handleAddPopupClose = () => setCurrentTodo(null);
+    const hasCurrentTodo = Boolean(currentTodo);
 
     if (!hasPage) {return <Placeholder text={DataPlaceholder.NO_TRAVEL} />;}
   
@@ -34,11 +39,11 @@ const TripDetails = ({ travels }) => {
                 <span>Price</span>
                 <strong className="trip-price__value">{travel.price} $</strong>
             </div>
-            <button className="trip__button button">Book a trip</button>
+            <button className="trip__button button" onClick={handleAddPopupOpen}>Book a trip</button>
             </div>
         </div>
         </main>
-        {isPopupOpen && <TripBookPopup travels={travels} id={query.id} />}
+        {hasCurrentTodo && <TripBookPopup travels={travels} id={query.id} onClose={handleAddPopupClose} />}
       </>
     );
   };

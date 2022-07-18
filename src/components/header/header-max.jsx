@@ -3,8 +3,12 @@ import briefcase from '../../assets/images/briefcase.svg'
 import user from '../../assets/images/user.svg'
 import { AppPath } from '../../common/enums/enum';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-const HeaderMax = () => (
+const HeaderMax = () => {   
+  
+  return  (
+    <>
     <header className="header">
       <div className="header__inner">
         <Link to={AppPath.ROOT} className="header__logo">Travel App</Link>
@@ -23,7 +27,7 @@ const HeaderMax = () => (
                 <ul className="profile-nav__list">
                   <li className="profile-nav__item profile-nav__username">John Doe</li>
                   <li className="profile-nav__item">
-                    <button className="profile-nav__sign-out button">Sign Out</button>
+                    <button className="profile-nav__sign-out button" >Sign Out</button>
                   </li>
                 </ul>
               </div>
@@ -32,6 +36,8 @@ const HeaderMax = () => (
         </nav>
       </div>
     </header>
-);
+    </>
+    );
+};
 
 export default HeaderMax;
