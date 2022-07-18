@@ -1,6 +1,7 @@
 import './styles.css';
 import { AppPath } from '../../common/enums/enum';
 import HeaderMin from '../header/header-min';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => (
   <>
@@ -25,7 +26,7 @@ const SignUp = () => (
       </form>
       <span>
         Already have an account?
-        <a href={`${AppPath.SIGNIN}`} className="sign-up-form__link">Sign In</a>
+        <Link to={AppPath.SIGNIN} className="sign-up-form__link">Sign In</Link>
       </span>
     </main>
   </>  
