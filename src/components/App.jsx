@@ -1,6 +1,9 @@
-import { getLastPath } from '../helpers/helpers';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 import { AppPath } from '../common/enums/enum';
-import { Link, Route, Switch } from 'react-router-dom';
 import Footer from './footer/footer';
 import Travels from './travels/travels';
 import Bookings from './bookings/bookings';
@@ -15,33 +18,19 @@ const App = () => {
   const { travels } = trips;
   const { books } = bookings;
 
-  return (
-    <> 
-
-        <Switch>
-            <Route path={AppPath.ROOT} exact>
-              <Travels travels={travels} />
-            </Route>
-            <Route path={AppPath.SIGNIN} >
-              <SignIn />
-            </Route>
-            <Route path={AppPath.SIGNUP} >
-              <SignUp />
-            </Route>
-            <Route path={AppPath.TRAVELS_$ID} >
-              <TripDetails travels={travels} />
-            </Route>
-            <Route path={AppPath.BOOKINGS}>
-              <Bookings books={books} />
-            </Route>
-            <Route path={AppPath.TRAVELS || AppPath.ANY}>
-              <Travels travels={travels} />
-            </Route>
-            
-        </Switch>
-        
-      <Footer />
-    </>
+  return (    
+        <BrowserRouter>
+        <Routes>
+          <Route path={AppPath.ROOT} element={<Travels travels={travels} />} />
+          <Route path={AppPath.SIGNIN} element={<SignIn />} />
+          <Route path={AppPath.SIGNUP} element={<SignUp />} />
+          <Route path={AppPath.TRAVELS_$ID} element={<TripDetails travels={travels} />} />
+          <Route path={AppPath.BOOKINGS} element={<Bookings books={books} />} />
+          <Route path={AppPath.TRAVELS} element={<Travels travels={travels} />} />
+          <Route path={AppPath.ANY} element={<Travels travels={travels} />} />          
+        </Routes>
+        <Footer />
+      </BrowserRouter>     
   );
 }
 
