@@ -1,7 +1,9 @@
 import './styles.css';
 import heart from '../../assets/images/heart.svg';
 
-const Footer = () => (
+const Footer = () => {
+
+return (
     <footer className="footer">
       <span className="footer__text">
         from <a className="footer__link" href="https://binary-studio.com">binary studio</a> with
@@ -9,5 +11,6 @@ const Footer = () => (
       </span>
     </footer>
 );
+}
 
 export default Footer;

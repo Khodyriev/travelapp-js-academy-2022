@@ -3,11 +3,16 @@ import briefcase from '../../assets/images/briefcase.svg'
 import user from '../../assets/images/user.svg'
 import { AppPath } from '../../common/enums/enum';
 import { Link } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../features/user/userClise';
 
-const HeaderMax = () => {   
+const HeaderMax = () => {     
   
-  const navigate = useNavigate()
+  const { userInfo } = useSelector((state) => state.user)
+  const dispatch = useDispatch()
+  
+  let userNameShown;
+  if (userInfo.fullName) { userNameShown = userInfo.fullName} else {userNameShown = userInfo.user.fullName}
 
   return  (
     <>
@@ -27,9 +32,9 @@ const HeaderMax = () => {
                 <span className="visually-hidden">Profile</span>
                 <img src={user} alt="profile icon" />
                 <ul className="profile-nav__list">
-                  <li className="profile-nav__item profile-nav__username">John Doe</li>
+                  <li className="profile-nav__item profile-nav__username">{userNameShown}</li>
                   <li className="profile-nav__item">
-                    <button className="profile-nav__sign-out button" onClick={() => {navigate(AppPath.SIGNIN)}} >Sign Out</button>
+                    <button className="profile-nav__sign-out button" onClick={() => {dispatch(logout())}}>Sign Out</button>
                   </li>
                 </ul>
               </div>
