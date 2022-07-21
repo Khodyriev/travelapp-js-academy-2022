@@ -8,13 +8,17 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // import { getUserDetails } from '../../features/user/userAction';
 import { logout } from '../../features/user/userClise';
+import { initializeUseSelector } from 'react-redux/es/hooks/useSelector';
 
 const HeaderMax = () => {   
   
   // const navigate = useNavigate()
   const { userInfo } = useSelector((state) => state.user)
   const dispatch = useDispatch()
-  console.log(userInfo)
+  console.log('Loggin from header-max.js. userInfo:', userInfo)
+
+  let userNameShown;
+  if (userInfo.fullName) { userNameShown = userInfo.fullName} else {userNameShown = userInfo.user.fullName}
 
   return  (
     <>
@@ -34,7 +38,7 @@ const HeaderMax = () => {
                 <span className="visually-hidden">Profile</span>
                 <img src={user} alt="profile icon" />
                 <ul className="profile-nav__list">
-                  <li className="profile-nav__item profile-nav__username">{userInfo.user.fullName}</li>
+                  <li className="profile-nav__item profile-nav__username">{userNameShown}</li>
                   <li className="profile-nav__item">
                     <button className="profile-nav__sign-out button" onClick={() => {dispatch(logout())}}>Sign Out</button>
                   </li>

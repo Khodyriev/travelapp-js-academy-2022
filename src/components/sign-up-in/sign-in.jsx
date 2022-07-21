@@ -34,7 +34,14 @@ const SignIn = () => {
     }
   }, [navigate, userInfo])
 
-    if (loading) {return < Loader />}
+    if (loading) {return (
+      <>
+        <main className="sign-in-page">
+          < Loader />
+        </main>
+      </>
+    )       
+      }
 
 return (
     <>

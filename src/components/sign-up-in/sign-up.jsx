@@ -25,9 +25,9 @@ const SignUp = () => {
 
   useEffect(() => {
     // redirect user to login page if registration was successful
-    if (success) navigate('/login')
+    if (success) navigate(AppPath.ROOT)
     // redirect authenticated user to profile screen
-    if (userInfo) navigate('/user-profile')
+    if (userInfo) navigate(AppPath.ROOT)
   }, [navigate, userInfo, success])
 
   const { register, handleSubmit } = useForm()
@@ -38,7 +38,14 @@ const SignUp = () => {
     dispatch(registerUser(data))
   }
 
-  if (loading) {return < Loader />}
+  if (loading) {return (
+    <>
+      <main className="sign-in-page">
+        < Loader />
+      </main>
+    </>
+  )       
+    }
   
   return (
   <>
