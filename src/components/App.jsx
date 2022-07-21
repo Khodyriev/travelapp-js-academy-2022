@@ -34,35 +34,35 @@ const App = () => {
   }, [userToken, dispatch])
 
   return (    
-        // <>
-        // <Routes>
-        //   <Route element={<ProtectedRoute />}>
-        //     <Route path={AppPath.ROOT} element={<Travels travels={travels} />} />
-        //   </Route>
-        //     <Route path={AppPath.SIGNIN} element={<SignIn />} />
-        //     <Route path={AppPath.SIGNUP} element={<SignUp />} />
-        //     <Route element={<ProtectedRoute />}>
-        //     <Route path={AppPath.TRAVELS_$ID} element={<TripDetails travels={travels} />} />
-        //     <Route path={AppPath.BOOKINGS} element={<Bookings books={books} />} />
-        //     <Route path={AppPath.TRAVELS} element={<Travels travels={travels} />} />
-        //     <Route path={AppPath.ANY} element={<Travels travels={travels} />} />
-        //   </Route>          
-        // </Routes>
-        // <Footer />
-        // </> 
-
         <>
-        <Routes>          
-          <Route path={AppPath.ROOT} element={<ProtectedRoute component={Travels} />} />          
-          <Route path={AppPath.SIGNIN} element={<SignIn />} />
-          <Route path={AppPath.SIGNUP} element={<SignUp />} />            
-          <Route path={AppPath.TRAVELS_$ID} element={<ProtectedRoute component={TripDetails} />} />
-          <Route path={AppPath.BOOKINGS} element={<ProtectedRoute component={Bookings} />} />
-          <Route path={AppPath.TRAVELS} element={<ProtectedRoute component={Travels} />} />
-          <Route path={AppPath.ANY} element={<ProtectedRoute component={Travels} />} />          
+        <Routes>
+          <Route element={<ProtectedRoute />}>
+            <Route path={AppPath.ROOT} element={<Travels travels={travels} />} />
+          </Route>
+            <Route path={AppPath.SIGNIN} element={<SignIn />} />
+            <Route path={AppPath.SIGNUP} element={<SignUp />} />
+            <Route element={<ProtectedRoute />}>
+            <Route path={AppPath.TRAVELS_$ID} element={<TripDetails travels={travels} />} />
+            <Route path={AppPath.BOOKINGS} element={<Bookings books={books} />} />
+            <Route path={AppPath.TRAVELS} element={<Travels travels={travels} />} />
+            <Route path={AppPath.ANY} element={<Travels travels={travels} />} />
+          </Route>          
         </Routes>
         <Footer />
         </> 
+
+        // <>
+        // <Routes>          
+        //   <Route path={AppPath.ROOT} element={<ProtectedRoute component={Travels} />} />          
+        //   <Route path={AppPath.SIGNIN} element={<SignIn />} />
+        //   <Route path={AppPath.SIGNUP} element={<SignUp />} />            
+        //   <Route path={AppPath.TRAVELS_$ID} element={<ProtectedRoute component={TripDetails} />} />
+        //   <Route path={AppPath.BOOKINGS} element={<ProtectedRoute component={Bookings} />} />
+        //   <Route path={AppPath.TRAVELS} element={<ProtectedRoute component={Travels} />} />
+        //   <Route path={AppPath.ANY} element={<ProtectedRoute component={Travels} />} />          
+        // </Routes>
+        // <Footer />
+        // </> 
   );
 }
 

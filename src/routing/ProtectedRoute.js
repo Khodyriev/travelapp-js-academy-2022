@@ -12,7 +12,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
     // const userInfo = Boolean(user);
 
   return (userInfo)
-    ? <Component {...rest} />
+    ? <Outlet />
     : <Navigate to={{ pathname: AppPath.SIGNIN}} />;
 };
   
