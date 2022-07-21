@@ -3,20 +3,14 @@ import briefcase from '../../assets/images/briefcase.svg'
 import user from '../../assets/images/user.svg'
 import { AppPath } from '../../common/enums/enum';
 import { Link } from 'react-router-dom';
-// import { useNavigate } from "react-router-dom";
-// import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { getUserDetails } from '../../features/user/userAction';
 import { logout } from '../../features/user/userClise';
-import { initializeUseSelector } from 'react-redux/es/hooks/useSelector';
 
-const HeaderMax = () => {   
+const HeaderMax = () => {     
   
-  // const navigate = useNavigate()
   const { userInfo } = useSelector((state) => state.user)
   const dispatch = useDispatch()
-  console.log('Loggin from header-max.js. userInfo:', userInfo)
-
+  
   let userNameShown;
   if (userInfo.fullName) { userNameShown = userInfo.fullName} else {userNameShown = userInfo.user.fullName}
 

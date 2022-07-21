@@ -20,13 +20,8 @@ const App = () => {
 
   books.sort((a, b) => a.date > b.date ? 1 : -1);
 
-  const { userInfo, userToken } = useSelector((state) => state.user)  
-  console.log("Loggin from app.js. useSelector((state) => state.user):", useSelector((state) => state.user))
-  const dispatch = useDispatch()
-  // const userToken = localStorage.getItem("token")
-  // automatically authenticate user if token is found
-  console.log('Loggin from app.js. userToken:', userToken)
-  console.log('Loggin from app.js. userInfo:', userInfo)
+  const { userInfo, userToken } = useSelector((state) => state.user)   
+  const dispatch = useDispatch()    
   useEffect(() => {
     if (userToken) {
       dispatch(getUserDetails())
@@ -50,19 +45,6 @@ const App = () => {
         </Routes>
         <Footer />
         </> 
-
-        // <>
-        // <Routes>          
-        //   <Route path={AppPath.ROOT} element={<ProtectedRoute component={Travels} />} />          
-        //   <Route path={AppPath.SIGNIN} element={<SignIn />} />
-        //   <Route path={AppPath.SIGNUP} element={<SignUp />} />            
-        //   <Route path={AppPath.TRAVELS_$ID} element={<ProtectedRoute component={TripDetails} />} />
-        //   <Route path={AppPath.BOOKINGS} element={<ProtectedRoute component={Bookings} />} />
-        //   <Route path={AppPath.TRAVELS} element={<ProtectedRoute component={Travels} />} />
-        //   <Route path={AppPath.ANY} element={<ProtectedRoute component={Travels} />} />          
-        // </Routes>
-        // <Footer />
-        // </> 
   );
 }
 

@@ -18,22 +18,15 @@ const SignUp = () => {
   const dispatch = useDispatch()
 
   const navigate = useNavigate()
-  //   const handleSubmit = (evt) => {
-  //       evt.preventDefault();
-  //       navigate(AppPath.ROOT);
-  //     }
 
-  useEffect(() => {
-    // redirect user to login page if registration was successful
-    if (success) navigate(AppPath.ROOT)
-    // redirect authenticated user to profile screen
+  useEffect(() => {    
+    if (success) navigate(AppPath.ROOT)    
     if (userInfo) navigate(AppPath.ROOT)
   }, [navigate, userInfo, success])
 
   const { register, handleSubmit } = useForm()
 
-  const submitForm = (data) => {
-    // transform email string to lowercase to avoid case sensitivity issues during login
+  const submitForm = (data) => {   
     data.email = data.email.toLowerCase()
     dispatch(registerUser(data))
   }
@@ -52,8 +45,7 @@ const SignUp = () => {
     <HeaderMin />
     <main className="sign-up-page">
       <h1 className="visually-hidden">Travel App</h1>
-      <form onSubmit={handleSubmit(submitForm)} className="sign-up-form" autoComplete="off">
-        {/* render error message with Error component, if any */}
+      <form onSubmit={handleSubmit(submitForm)} className="sign-up-form" autoComplete="off">        
         {error && <Error>{error}</Error>}
         <h2 className="sign-up-form__title">Sign Up</h2>
         <label className="trip-popup__input input" htmlFor='fullName'>

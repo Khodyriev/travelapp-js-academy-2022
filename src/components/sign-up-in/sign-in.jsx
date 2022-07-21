@@ -12,12 +12,6 @@ import Loader from '../common/loader/loader';
 
 const SignIn = () => {
 
-    
-    // const handleSubmit = (evt) => {
-    //     evt.preventDefault();
-    //     navigate(AppPath.ROOT);
-    //   }
-
     const { loading, userInfo, error } = useSelector((state) => state.user)
     const dispatch = useDispatch()
     const { register, handleSubmit } = useForm()
@@ -26,8 +20,7 @@ const SignIn = () => {
     const submitForm = (data) => {
         dispatch(userLogin(data))
     }
-
-    // redirect authenticated user to profile screen
+    
   useEffect(() => {
     if (userInfo) {
       navigate(AppPath.ROOT)
