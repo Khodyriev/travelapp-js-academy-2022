@@ -6,7 +6,6 @@ import Bookings from './bookings/bookings';
 import SignUp from './sign-up-in/sign-up';
 import SignIn from './sign-up-in/sign-in';
 import TripDetails from './trip-details/trip-details';
-// import trips from '../database/trips.json';
 import bookings from '../database/bookings.json';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,7 +14,6 @@ import ProtectedRoute from '../routing/ProtectedRoute';
 
 const App = () => {
 
-  // const { travels } = trips;
   const { books } = bookings;
 
   books.sort((a, b) => a.date > b.date ? 1 : -1);

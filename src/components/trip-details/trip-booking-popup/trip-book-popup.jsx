@@ -1,12 +1,10 @@
 import Modal from '../../common/modal/modal';
 import { useFocusTrap, useState } from '../../../hooks/hooks';
-// import { getTravelById } from '../../../helpers/helpers';
 import './styles.css';
 
 const TripBookPopup = ({ travel, onClose }) => {
 
-  const ref = useFocusTrap();
-  // const travel = getTravelById(travels, id);
+  const ref = useFocusTrap(); 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     onClose();

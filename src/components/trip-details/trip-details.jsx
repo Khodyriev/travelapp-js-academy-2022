@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getTrip } from '../../features/content/contentActions';
 import HeaderMax from '../header/header-max';
-// import { getTravelById } from '../../helpers/helpers';
 import Placeholder from '../common/placeholder/placeholder';
 import { DataPlaceholder } from '../../common/enums/enum'
 import Error from '../common/error/Error';
@@ -13,8 +12,7 @@ import Loader from '../common/loader/loader';
 
 const TripDetails = () => {
     
-    const { query } = useRouter();
-    // const travel = getTravelById(travels, query.id);
+    const { query } = useRouter();    
     const {loading, travel, error} = useSelector((state) => state.trips);
     const dispatch = useDispatch();
 
