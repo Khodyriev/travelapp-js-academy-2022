@@ -41,7 +41,6 @@ const initialState = {
       },
 
     },
-  })  
- 
+  })
   
   export default tripsSlice.reducer

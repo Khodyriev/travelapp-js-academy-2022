@@ -1,5 +1,5 @@
 import { TripsFilter, Travellist } from './components/components'
-import { useCallback, useState } from '../../hooks/hooks';
+import { useState } from '../../hooks/hooks';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getTrips } from '../../features/content/contentActions';
