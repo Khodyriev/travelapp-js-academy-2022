@@ -20,16 +20,13 @@ const Travels = () => {
     useEffect(() => {
     dispatch(getTrips());
     }, [dispatch]);
-
-    // const [travels, setTravels] = useState(fetchedTravels);    
+    
     const [filterValues, setFilterValues] = useState(DEFAULT_FILTER_VALUES);
 
     const filteredTravels = getFilteredTravels(travels, filterValues);
     const hasTravels = Boolean(filteredTravels.length);
 
-    const handlerFilterChange = (values) => setFilterValues(values);
-
-    // console.log('log from travels.jsx. travels:', travels)
+    const handlerFilterChange = (values) => setFilterValues(values);   
 
     if (loading) {return (
         <>

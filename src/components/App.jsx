@@ -6,7 +6,6 @@ import Bookings from './bookings/bookings';
 import SignUp from './sign-up-in/sign-up';
 import SignIn from './sign-up-in/sign-in';
 import TripDetails from './trip-details/trip-details';
-import bookings from '../database/bookings.json';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserDetails } from '../features/user/userAction';
@@ -14,11 +13,7 @@ import ProtectedRoute from '../routing/ProtectedRoute';
 
 const App = () => {
 
-  const { books } = bookings;
-
-  books.sort((a, b) => a.date > b.date ? 1 : -1);
-
-  const { userInfo, userToken } = useSelector((state) => state.user)   
+  const { userToken } = useSelector((state) => state.user)   
   const dispatch = useDispatch()    
   useEffect(() => {
     if (userToken) {
@@ -36,7 +31,7 @@ const App = () => {
             <Route path={AppPath.SIGNUP} element={<SignUp />} />
             <Route element={<ProtectedRoute />}>
             <Route path={AppPath.TRAVELS_$ID} element={<TripDetails />} />
-            <Route path={AppPath.BOOKINGS} element={<Bookings books={books} />} />
+            <Route path={AppPath.BOOKINGS} element={<Bookings />} />
             <Route path={AppPath.TRAVELS} element={<Travels />} />
             <Route path={AppPath.ANY} element={<Travels />} />
           </Route>          

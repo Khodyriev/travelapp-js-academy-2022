@@ -7,7 +7,7 @@ const userToken = localStorage.getItem('userToken')
 
 const initialState = {
   loading: false,
-  userInfo: null,
+  userInfo: null,  
   userToken,
   error: null,
   success: false,
@@ -21,7 +21,7 @@ const userSlice = createSlice({
     logout: (state) => {
       localStorage.removeItem('userToken')
       state.loading = false
-      state.userInfo = null
+      state.userInfo = null      
       state.userToken = null
       state.error = null
     },
@@ -33,7 +33,7 @@ const userSlice = createSlice({
     },
     [userLogin.fulfilled]: (state, { payload }) => {
       state.loading = false
-      state.userInfo = payload
+      state.userInfo = payload      
       state.userToken = payload.userToken
     },
     [userLogin.rejected]: (state, { payload }) => {
@@ -46,6 +46,8 @@ const userSlice = createSlice({
     },
     [registerUser.fulfilled]: (state, { payload }) => {
       state.loading = false
+      state.userInfo = payload      
+      state.userToken = payload.userToken
       state.success = true 
     },
     [registerUser.rejected]: (state, { payload }) => {
