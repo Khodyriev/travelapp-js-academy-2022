@@ -1,15 +1,28 @@
 import TripBookPopup from './trip-booking-popup/trip-book-popup';
 import './styles.css';
 import { useRouter, useState } from '../../hooks/hooks';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getTrip } from '../../features/content/contentActions';
 import HeaderMax from '../header/header-max';
-import { getTravelById } from '../../helpers/helpers';
+// import { getTravelById } from '../../helpers/helpers';
 import Placeholder from '../common/placeholder/placeholder';
 import { DataPlaceholder } from '../../common/enums/enum'
+import Error from '../common/error/Error';
+import Loader from '../common/loader/loader';
 
-const TripDetails = ({ travels }) => {
+const TripDetails = () => {
     
     const { query } = useRouter();
-    const travel = getTravelById(travels, query.id);
+    // const travel = getTravelById(travels, query.id);
+    const {loading, travel, error} = useSelector((state) => state.trips);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+    dispatch(getTrip(query.id));
+    }, [dispatch, query.id]);
+
+
     const hasPage = Boolean(travel);
     
     const [currentTodo, setCurrentTodo] = useState(null);
@@ -17,7 +30,18 @@ const TripDetails = ({ travels }) => {
     const handleAddPopupClose = () => setCurrentTodo(null);
     const hasCurrentTodo = Boolean(currentTodo);
 
+    console.log('log from trip-details.jsx. travel:', travel)
+
     if (!hasPage) {return <Placeholder text={DataPlaceholder.NO_TRAVEL} />;}
+
+    if (loading) {return (
+      <>
+        <main className="sign-in-page">
+          < Loader />
+        </main>
+      </>
+    )       
+  }
   
     return (
       <>
@@ -25,6 +49,7 @@ const TripDetails = ({ travels }) => {
         <main className="trip-page">
         <h1 className="visually-hidden">Travel App</h1>
         <div className="trip">
+        {error && <Error>{error}</Error>}
             <img src={travel.image} className="trip__img" alt="trip place" />
             <div className="trip__content">
             <div className="trip-info">
@@ -43,7 +68,7 @@ const TripDetails = ({ travels }) => {
             </div>
         </div>
         </main>
-        {hasCurrentTodo && <TripBookPopup travels={travels} id={query.id} onClose={handleAddPopupClose} />}
+        {hasCurrentTodo && <TripBookPopup travel={travel} onClose={handleAddPopupClose} />}
       </>
     );
   };
