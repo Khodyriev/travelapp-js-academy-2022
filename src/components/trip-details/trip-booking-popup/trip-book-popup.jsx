@@ -32,8 +32,6 @@ const TripBookPopup = ({ travel, onClose }) => {
         date: data.date
       }
       dispatch(putBook(fullData))
-      // console.log('log from booking. data from form', data)
-      // console.log('log from booking. data for dispatcher', fullData)
       onClose();
   }  
 

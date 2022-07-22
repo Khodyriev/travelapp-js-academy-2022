@@ -2,10 +2,6 @@ import './styles.css';
 
 const Booking = ({ book }) => {
 
-  // const handleBookDelete = () => {
-  //   onBookDelete(book);
-  // };
-
   const dateFormated = () => {
     const date = new Date(book.date);
     let dd = date.getDate();

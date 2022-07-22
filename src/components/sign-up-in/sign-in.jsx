@@ -15,13 +15,10 @@ const SignIn = () => {
     const { loading, userInfo, error } = useSelector((state) => state.user)
     const dispatch = useDispatch()
     const { register, handleSubmit } = useForm()
-    const navigate = useNavigate()
-
-    // console.log('log from signin. from useselector', useSelector((state) => state.user))
+    const navigate = useNavigate()   
 
     const submitForm = (data) => {
-        dispatch(userLogin(data))
-        // console.log('log from signin. data for dispatcher', data)
+        dispatch(userLogin(data))        
     }
     
   useEffect(() => {
