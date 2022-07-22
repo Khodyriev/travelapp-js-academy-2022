@@ -21,7 +21,7 @@ const initialState = {
       },
       [getBooks.fulfilled]: (state, { payload }) => {
         state.loading = false
-        state.travels = payload        
+        state.books = payload        
       },
       [getBooks.rejected]: (state, { payload }) => {
         state.loading = false
@@ -33,7 +33,7 @@ const initialState = {
       },
       [putBook.fulfilled]: (state, { payload }) => {
         state.loading = false
-        state.travel = payload 
+        state.book = payload 
       },
       [putBook.rejected]: (state, { payload }) => {
         state.loading = false

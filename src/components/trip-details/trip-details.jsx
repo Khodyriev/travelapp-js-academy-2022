@@ -14,21 +14,18 @@ const TripDetails = () => {
     
     const { query } = useRouter();    
     const {loading, travel, error} = useSelector((state) => state.trips);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch();    
 
     useEffect(() => {
     dispatch(getTrip(query.id));
     }, [dispatch, query.id]);
-
 
     const hasPage = Boolean(travel);
     
     const [currentTodo, setCurrentTodo] = useState(null);
     const handleAddPopupOpen = () => setCurrentTodo('1');
     const handleAddPopupClose = () => setCurrentTodo(null);
-    const hasCurrentTodo = Boolean(currentTodo);
-
-    console.log('log from trip-details.jsx. travel:', travel)
+    const hasCurrentTodo = Boolean(currentTodo);    
 
     if (!hasPage) {return <Placeholder text={DataPlaceholder.NO_TRAVEL} />;}
 

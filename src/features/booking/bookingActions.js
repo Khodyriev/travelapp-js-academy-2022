@@ -51,7 +51,7 @@ export const putBook = createAsyncThunk(
     );
 
 export const dellBook = createAsyncThunk(
-    'books/fetch-bookings',
+    'books/dell-bookings',
     async (id, { getState, rejectWithValue }) => {
         try {
             const { user } = getState()

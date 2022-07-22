@@ -17,7 +17,7 @@ const Bookings = () => {
     const {loading, books, error} = useSelector((state) => state.books);
     const dispatch = useDispatch();
 
-    books.sort((a, b) => a.date > b.date ? 1 : -1);
+    // books.sort((a, b) => a.date > b.date ? 1 : -1);
 
     useEffect(() => {
         dispatch(getBooks());
