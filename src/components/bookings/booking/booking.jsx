@@ -1,10 +1,10 @@
 import './styles.css';
 
-const Booking = ({ book, onBookDelete }) => {
+const Booking = ({ book }) => {
 
-  const handleBookDelete = () => {
-    onBookDelete(book);
-  };
+  // const handleBookDelete = () => {
+  //   onBookDelete(book);
+  // };
 
   const dateFormated = () => {
     const date = new Date(book.date);
@@ -22,7 +22,7 @@ const Booking = ({ book, onBookDelete }) => {
           <span className="booking__guests">{book.guests} guests</span>
           <span className="booking__date">{dateFormated()}</span>
           <span className="booking__total">{book.totalPrice} $</span>
-          <button onClick={handleBookDelete} className="booking__cancel" title="Cancel booking">
+          <button className="booking__cancel" title="Cancel booking">
             <span className="visually-hidden">Cancel booking</span>
             ×
           </button>

@@ -14,9 +14,9 @@ import ProtectedRoute from '../routing/ProtectedRoute';
 
 const App = () => {
 
-  const { books } = bookings;
+  // const { books } = bookings;
 
-  books.sort((a, b) => a.date > b.date ? 1 : -1);
+  // books.sort((a, b) => a.date > b.date ? 1 : -1);
 
   const { userInfo, userToken } = useSelector((state) => state.user)   
   const dispatch = useDispatch()    
@@ -36,7 +36,7 @@ const App = () => {
             <Route path={AppPath.SIGNUP} element={<SignUp />} />
             <Route element={<ProtectedRoute />}>
             <Route path={AppPath.TRAVELS_$ID} element={<TripDetails />} />
-            <Route path={AppPath.BOOKINGS} element={<Bookings books={books} />} />
+            <Route path={AppPath.BOOKINGS} element={<Bookings />} />
             <Route path={AppPath.TRAVELS} element={<Travels />} />
             <Route path={AppPath.ANY} element={<Travels />} />
           </Route>          

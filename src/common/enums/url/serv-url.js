@@ -11,7 +11,7 @@ const servUrl = {
     BOOKINGS: {
         GETLIST: "https://travel-app-api.glitch.me/api/v1/bookings",
         BOOK: "https://travel-app-api.glitch.me/api/v1/bookings",
-        DELL: "https://travel-app-api.glitch.me/api/v1/bookings"
+        DELL: "https://travel-app-api.glitch.me/api/v1/bookings/"
     }
 };
 
