@@ -21,20 +21,16 @@ const App = () => {
     }
   }, [userToken, dispatch])
 
-  return (    
+  return (
         <>
-        <Routes>
-          <Route element={<ProtectedRoute />}>
-            <Route path={AppPath.ROOT} element={<Travels />} />
-          </Route>
+        <Routes>          
+            <Route path={AppPath.ROOT} element={ <ProtectedRoute component={Travels} />} />          
             <Route path={AppPath.SIGNIN} element={<SignIn />} />
-            <Route path={AppPath.SIGNUP} element={<SignUp />} />
-            <Route element={<ProtectedRoute />}>
-            <Route path={AppPath.TRAVELS_$ID} element={<TripDetails />} />
-            <Route path={AppPath.BOOKINGS} element={<Bookings />} />
-            <Route path={AppPath.TRAVELS} element={<Travels />} />
-            <Route path={AppPath.ANY} element={<Travels />} />
-          </Route>          
+            <Route path={AppPath.SIGNUP} element={<SignUp />} />            
+            <Route path={AppPath.TRAVELS_$ID} element={<ProtectedRoute component={TripDetails} />} />
+            <Route path={AppPath.BOOKINGS} element={<ProtectedRoute component={Bookings} />} />
+            <Route path={AppPath.TRAVELS} element={<ProtectedRoute component={Travels} />} />
+            <Route path={AppPath.ANY} element={<ProtectedRoute component={Travels} />} />          
         </Routes>
         <Footer />
         </> 
