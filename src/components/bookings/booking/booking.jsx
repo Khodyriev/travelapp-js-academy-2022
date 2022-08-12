@@ -1,10 +1,8 @@
+import { useDispatch } from 'react-redux';
+import { dellBook } from '../../../features/booking/bookingActions';
 import './styles.css';
 
-const Booking = ({ book, onBookDelete }) => {
-
-  const handleBookDelete = () => {
-    onBookDelete(book);
-  };
+const Booking = ({ book }) => {
 
   const dateFormated = () => {
     const date = new Date(book.date);
@@ -15,6 +13,9 @@ const Booking = ({ book, onBookDelete }) => {
     let yyyy = date.getFullYear();
     return dd + '.' + mm + '.' + yyyy;
   }
+  const dispatch = useDispatch()  
+
+  // console.log(book);
 
       return (
         <li className="booking">
@@ -22,7 +23,7 @@ const Booking = ({ book, onBookDelete }) => {
           <span className="booking__guests">{book.guests} guests</span>
           <span className="booking__date">{dateFormated()}</span>
           <span className="booking__total">{book.totalPrice} $</span>
-          <button onClick={handleBookDelete} className="booking__cancel" title="Cancel booking">
+          <button className="booking__cancel" title="Cancel booking" onClick={() => {dispatch(dellBook(book.id))}}>
             <span className="visually-hidden">Cancel booking</span>
             ×
           </button>
